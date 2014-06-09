@@ -1,0 +1,91 @@
+#  ----------------------------------------------------#
+#  MyServer - Configuration file                       #
+#  ----------------------------------------------------#
+#  Author: Sicka_gp                                    #
+#  ----------------------------------------------------#
+Scoreboard: 
+   #Enable Scoreboard
+   Enable: true
+   #Update interval
+   Update: 1
+   #Update time = Update * DynamicTitleUpdateInterval
+   DynamicTitleUpdateInterval: 10
+   #If its true, plug-in use the default settings for everybody.
+   UseDefault: false
+   #You can set the scoreboards for each group
+   Scoreboards:
+      #Default settings is apply if a group of player isn't set
+      Default:
+         #Scoreboard title
+         #The Title must have under 32 characters
+         DynamicTitle:
+         - '&6Default'
+         - '&l{8}'
+         - '&l&5{6}'
+         #Disables the Scoreboard for the world from the list
+         DisabledWorlds:
+         - 'exampleworld'
+         Items:
+         #The Title must have under 16 characters
+         #-'<ScoreName>;<ScoreValue>' 
+         - '&aOnline;%online_players'
+         - '&aBalance;%bal'
+         - '&aPing;%ping'
+      Admin:
+         DynamicTitle:
+         - '&6Admin'
+         - '&l{8}'
+         - '&l&5{6}'
+         DisabledWorlds:
+         - 'exampleworld'
+         Items:
+         - '&aOnline;%online_players'
+         - '&aBalance;%bal'
+         - '&aPing;%ping'
+      Player:
+         DynamicTitle:
+         - '&6layer'
+         - '&l{8}'
+         - '&l&5{6}'
+         DisabledWorlds:
+         - 'exampleworld'
+         Items:
+         - '&aOnline;%online_players'
+         - '&aBalance;%bal'
+         - '&aPing;%ping'
+ScoreboardCountdown:
+   #Enables sound during the countdown.
+   EnableSounds: true
+   
+   #Scoreboard title
+   #The Title must have under 32 characters
+   CancelTitle: 'The countdown was cancelled.'
+   #Chat message
+   CancelBroadcastMSG: '&f[&6MyServer&f] The countdown was cancelled.'
+   
+   #Scoreboard title
+   #The Title must have under 32 characters
+   ShutdownTitle: 'Shutdown in {CD} minutes.'
+   #Chat message
+   ShutdownBroadcastMSG: '&f[&6MyServer&f] The Server will be shut down in {CD} minutes.'
+   #Chat message
+   ShutdownEndBroadcastMSG: '&f[&6MyServer&f] The Server is shut down!'
+   
+   #Scoreboard title
+   #The Title must have under 32 characters
+   ReloadTitle: 'Reload in {CD} minutes.'
+   #Chat message
+   ReloadBroadcastMSG: '&f[&6MyServer&f] The Server will be reload in {CD} minutes.'
+   #Chat message
+   ReloadingBroadcastMSG: '&f[&6MyServer&f] Reloading....'
+   
+   #Scoreboard title
+   #The Title must have under 32 characters
+   CountdownTitle: 'Timer: {CD} minutes.'
+   #Chat message
+   CountdownBroadcastMSG: '&f[&6MyServer&f] The countdown ends for {CD} minutes.'
+   #Scoreboard title
+   #The Title must have under 32 characters
+   CountdownEndTitle: 'Countdown complete {CD}'
+   #Chat message
+   CountdownEndBroadcastMSG: '&f[&6MyServer&f] Countdown complete!'

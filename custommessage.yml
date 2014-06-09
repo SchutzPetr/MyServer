@@ -1,0 +1,65 @@
+#  ----------------------------------------------------#
+#  MyServer - Configuration file                       #
+#  ----------------------------------------------------#
+#  Author: Sicka_gp                                    #
+#  ----------------------------------------------------#
+Messages:
+   #Set server full message
+   FullServer: '&dServer is full!'
+   #Set white list message
+   WhitelistMessage: '&dYou are not whitelisted on this server.'
+   #If you only want to turn off all messages
+   DisableAllJoinQuitKickMSG: false
+   #Allows manage the Join/Quit/Kick message with this plugin
+   EnableJoinQuitKickMSG: true
+   #If its true, plug-in use the default settings for everybody
+   UseDefaultMessage: false
+   #Enable TabList features
+   EnableTabList: true
+   #If its true, plug-in use the default Tab settings for everybody
+   UseDefaultTabList: false
+   #If set to true, plug-in use colour from player group
+   UseDefaultTabListColor: false
+   #Group settings
+   Groups:
+       #Default Messages
+       Default: 
+          JoinMessage: '{NAME} &ejoin the game!'
+          QuitMessage: '{NAME} &equit the game!'
+          KickMessage: '{NAME} &ehas been kicked out of the game for {REASON}'
+          TabColor: '&f' 
+          TabPrefix: ''
+       #Group name   
+       Admin:
+          JoinMessage: '{DISPLAYNAME} &ejoin the game!'
+          QuitMessage: '{DISPLAYNAME} &equit the game!'
+          KickMessage: '{DISPLAYNAME} &ehas been kicked out of the game for {REASON}'
+          TabColor: '&9'
+          TabPrefix: '&4[A]'
+       Player:
+          JoinMessage: '{DISPLAYNAME} &ejoin the game!'
+          QuitMessage: '{DISPLAYNAME} &equit the game!'
+          KickMessage: '{DISPLAYNAME} &ehas been kicked out of the game for {REASON}'
+          TabColor: '&a'
+          TabPrefix: ''
+Newbies:
+   #Enable first join message
+   FirstMessageEnable: true
+   #First join message
+   FirstMessage: '&5Welcome to {SERVER_NAME}!'
+   #Enable kits for newbies
+   Kits: false
+   #Kits set-up
+   Items:
+   # -'<itemId>:<itemData>-<amount>' 
+   - '17:0-16'
+   - '17:1-16'
+   - '17:2-16'
+   - '17:3-16'
+Automessage:
+   #Broadcast interval
+   Interval: 60
+   #Enable Automessage
+   Enable: true
+   #Prefix for Automessage   
+   Prefix: '&f[&6ConfigurableMessage&f] '

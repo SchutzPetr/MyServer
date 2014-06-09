@@ -1,0 +1,17 @@
+#  ----------------------------------------------------#
+#  MyServer - Configuration file                       #
+#  ----------------------------------------------------#
+#  Author: Sicka_gp                                    #
+#  ----------------------------------------------------#
+Config_version: 1
+Enable: true  
+
+#Replace badwords to ***
+badwords:
+#only Example
+- 'fuck'
+
+#Blocking Spam with advertising on other servers
+IP:
+#only Example
+- ':25565'

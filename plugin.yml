@@ -1,0 +1,41 @@
+main: cz.Sicka_gp.MyServer.MyServer
+name: MyServer
+version: 0.0.1
+author: Sicka_gp
+softdepend: [Vault, Stats, mcMMO, GeoIPTools, Heroes, pvpstats, Factions, SimpleClans, ProtocolLib, HolographicDisplays]
+commands:
+   configurablemessages: 
+     description: Config reload/create and automessage
+     aliases: [cm, confmsg]
+   sidebar: 
+     aliases: [s, side]
+     description: Show or hide sidebar
+   countdown: 
+     aliases: [count, cd]
+     description: Show or hide sidebar
+permissions:  
+   myserver.admin:
+      description: Gives access to all permissions
+      default: op
+      children:
+         myserver.sidebar: true
+         myserver.reload: true
+         myserver.automessage.command: true
+         myserver.automessage.show: true
+         myserver.countdown: true
+   myserver.member:
+      description: Gives access to all member permissions
+      default: true
+      children:
+         myserver.sidebar: true
+         myserver.automessage.show: true
+   myserver.sidebar:
+      description: Allow command /sidebar or /sidebar
+   myserver.reload: 
+      description: Allow command /custommessage reload
+   myserver.automessage.command: 
+      description: Allow command /custommessage automessage start/stop
+   myserver.automessage.show: 
+      description: Allow the player to see the message
+   myserver.countdown:
+      description: Allow command /countdown

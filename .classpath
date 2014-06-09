@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/bukkit-1.7.9-R0.1-20140424.033657-5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/craftbukkit-1.7.9-R0.1-20140424.033947-16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/Factions.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/GeoIPTools.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/Heroes.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/HolographicDisplays.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/mcMMO.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/mcore.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/ProtocolLib-3.2.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="http://aadnk.github.com/ProtocolLib/Javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/pvpstats.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/SimpleClans-Legacy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/Stats.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Petr/Documents/Eclipse-Lib/Vault.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
