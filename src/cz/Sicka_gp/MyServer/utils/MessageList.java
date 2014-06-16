@@ -38,7 +38,6 @@ public class MessageList {
 	public static String SavingConfigs;
 	public static String ConfigsSaved;
 	public static String ConfigOutdated;
-	public static String aaaaaaaaaaa;
 	
 	public static String JoinMessageNull;
 	public static String QuitnMessageNull;
@@ -144,15 +143,12 @@ public class MessageList {
 	
 	private static void iniConfigMessage(){
 		CouldNotSaveConfig = pluginName + getMessage("CouldNotSaveConfig", "Could not save config to ");
-		
 		CreateConfigFile = pluginName + getMessage("CreateConfigFile", "Creating config file - ");
 		LoadingConfigs = pluginName + getMessage("LoadingConfigs", "Loading configs...");
 		ConfigsLoaded = pluginName + getMessage("ConfigsLoaded", "Configs loaded!");
 		SavingConfigs = pluginName + getMessage("SavingConfigs", "Saving configs...");
 		ConfigsSaved = pluginName + getMessage("ConfigsSaved", "Configs Saved!");
 		ConfigOutdated = pluginName + getMessage("aaaaaaaaaaa", "The following configuration files are outdated! Please update it!");
-		aaaaaaaaaaa = pluginName + getMessage("aaaaaaaaaaa", "ssssssssssss");
-		aaaaaaaaaaa = pluginName + getMessage("aaaaaaaaaaa", "ssssssssssss");
 		
 	}
 	
@@ -168,23 +164,21 @@ public class MessageList {
 	
 	private static void iniScoreboard(){
 		isLongerThanAllowed = getMessage("isLongerThanAllowed", "is longer than") + " ";
-		aaaaaaaaaaa = pluginName + getMessage("aaaaaaaaaaa", "ssssssssssss");
-		aaaaaaaaaaa = pluginName + getMessage("aaaaaaaaaaa", "ssssssssssss");
 	}
 	
 	private static void initcommandMessage(){
-		AuthorCommandMsg = getMessage("AuthorCommandMsg", "Author");
-		VersionCommandMsg = getMessage("VersionCommandMsg", "Version");
-		AutomessageEnableDisableCommands = getMessage("AutomessageEnableDisableCommands", "Automessage Enable/Disable");
-		HideShowCommand = getMessage("HideShowCommand", "Hide Sidebar/View sideba");
-		ReloadPluginCommand = getMessage("ReloadPluginCommand", "Reload plugin");
-		CountdownCommand = getMessage("CountdownCommand", "Countdown");
-		CountdownUsage = getMessage("CountdownUsage", "Countdown usage");
-		CountdownCommandtimer = getMessage("CountdownCommandtimer", "Timer");
-		CountdownCommandtimersec = getMessage("CountdownCommandtimersec", "Timer for 10 sec");
-		CountdownCommandreload = getMessage("CountdownCommandreload", "Reload server");
-		CountdownCommandreloadsec = getMessage("CountdownCommandreloadsec", "Reload server in 10 sec");
-		CountdownCommandshutdown = getMessage("CountdownCommandshutdown", "Shutdown Server");
-		CountdownCommandshutdownsec = getMessage("CountdownCommandshutdownsec", "Shutdown Server in 10 sec");
+		AuthorCommandMsg = getMessage("AuthorCommandMsg", "&bAuthor&7:&6 ");
+		VersionCommandMsg = getMessage("VersionCommandMsg", "&bVersion&7:&6 ");
+		AutomessageEnableDisableCommands = getMessage("AutomessageEnableDisableCommands", "&bAutomessage Enable/Disable&7:&6");
+		HideShowCommand = getMessage("HideShowCommand", "&bHide Sidebar/View sideba&7:&6 ");
+		ReloadPluginCommand = getMessage("ReloadPluginCommand", "&bReload plugin&7:&6 ");
+		CountdownCommand = getMessage("CountdownCommand", "&bCountdown&7:&6 ");
+		CountdownUsage = getMessage("CountdownUsage", "&bCountdown usage");
+		CountdownCommandtimer = getMessage("CountdownCommandtimer", "&bTimer&7:&6 ");
+		CountdownCommandtimersec = getMessage("CountdownCommandtimersec", "&bTimer for 10 sec&7:&6 ");
+		CountdownCommandreload = getMessage("CountdownCommandreload", "&bReload server&7:&6 ");
+		CountdownCommandreloadsec = getMessage("CountdownCommandreloadsec", "&bReload server in 10 sec&7:&6 ");
+		CountdownCommandshutdown = getMessage("CountdownCommandshutdown", "&bShutdown Server&7:&6 ");
+		CountdownCommandshutdownsec = getMessage("CountdownCommandshutdownsec", "&bShutdown Server in 10 sec&7:&6 ");
 	}
 }

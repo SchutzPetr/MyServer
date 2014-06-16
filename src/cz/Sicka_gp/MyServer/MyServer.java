@@ -1,5 +1,10 @@
 package cz.Sicka_gp.MyServer;
 
+/*
+ * @Author Petr Schutz
+ * 
+ */
+
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;

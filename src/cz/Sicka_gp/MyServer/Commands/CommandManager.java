@@ -209,9 +209,9 @@ public class CommandManager implements CommandExecutor{
 					return true;
 				}else{
 					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.GRAY + "++++" + AnsiColor.DARK_GREEN + "-----------[ " + AnsiColor.GOLD + plugin.getName() + AnsiColor.DARK_GREEN + " ]-----------" + AnsiColor.GRAY + "++++");
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Author" + AnsiColor.GRAY + ": " + AnsiColor.GOLD + plugin.getDescription().getAuthors());
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Version" + AnsiColor.GRAY + ": " + AnsiColor.GOLD + plugin.getDescription().getVersion());
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Reload plugin " + AnsiColor.GRAY + ": " + AnsiColor.GOLD + "/my reload");
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.AuthorCommandMsg + plugin.getDescription().getAuthors()));
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.VersionCommandMsg + plugin.getDescription().getVersion()));
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.ReloadPluginCommand + "/my reload"));
 				}
 			}
 		}
@@ -220,23 +220,23 @@ public class CommandManager implements CommandExecutor{
 	}
 	
 	private static void CountDownUsageMessage(Player p){
-		p.sendMessage(ChatColor.WHITE + "++++" + ChatColor.DARK_GREEN + "-----------[ " + ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownUsage) + ChatColor.DARK_GREEN + " ]-----------" + ChatColor.WHITE + "++++");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandtimer) + "/cd timer");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandtimersec) + "/cd timer <sec>");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandreload) + "/cd reload");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandreloadsec) + "/cd reload <sec>");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandshutdown) + "/cd stop");
-		p.sendMessage(ColouredConsoleSender.ReplaceAnsiColor(MessageList.CountdownCommandshutdownsec) + "/cd stop <sec>");
+		p.sendMessage(ChatColor.WHITE + "++++" + ChatColor.DARK_GREEN + "-----------[ " + ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownUsage) + ChatColor.DARK_GREEN + " ]-----------" + ChatColor.WHITE + "++++");
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandtimer + "/cd timer"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandtimersec + "/cd timer <sec>"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandreload + "/cd reload"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandreloadsec + "/cd reload <sec>"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandshutdown + "/cd stop"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommandshutdownsec + "/cd stop <sec>"));
 	}
 	
 	private static void DefaultCMDNullMessage(Player p){
 		p.sendMessage(ChatColor.WHITE + "++++" + ChatColor.DARK_GREEN + "-----------[ " + ChatColor.GOLD + plugin.getName() + ChatColor.DARK_GREEN + " ]-----------" + ChatColor.WHITE + "++++");
-		p.sendMessage(ChatColor.GREEN + "Author" + ChatColor.WHITE + ": " + ChatColor.GOLD + plugin.getDescription().getAuthors());
-		p.sendMessage(ChatColor.GREEN + "Version" + ChatColor.WHITE + ": " + ChatColor.GOLD + plugin.getDescription().getVersion());
-		p.sendMessage(ChatColor.GREEN + "Automessage Enable/Disable" + ChatColor.WHITE + ": " + ChatColor.GOLD + "/my am <start/stop>");
-		p.sendMessage(ChatColor.GREEN + "Reload plugin" + ChatColor.WHITE + ": " + ChatColor.GOLD + "/my reload");
-		p.sendMessage(ChatColor.GREEN + "Hide Sidebar/View sideba" + ChatColor.WHITE + ": " + ChatColor.GOLD + "/s" + ChatColor.WHITE + " or " + ChatColor.GOLD + "/side");
-		p.sendMessage(ChatColor.GREEN + "Countdown" + ChatColor.WHITE + ": " + ChatColor.GOLD + "/cd" + ChatColor.WHITE + " or " + ChatColor.GOLD + "/count" + ChatColor.WHITE + " or " + ChatColor.GOLD + "/countdown");
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.AuthorCommandMsg + plugin.getDescription().getAuthors()));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.VersionCommandMsg + plugin.getDescription().getVersion()));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.AutomessageEnableDisableCommands + ChatColor.GOLD + "/my am <start/stop>"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.ReloadPluginCommand + "/my reload"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.HideShowCommand + "/s"));
+		p.sendMessage(ChatColor.translateAlternateColorCodes("&".charAt(0), MessageList.CountdownCommand + "/cd"));
 	}
 
 	private static void Reload(){
