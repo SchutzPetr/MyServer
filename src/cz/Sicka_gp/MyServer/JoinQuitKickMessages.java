@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import cz.Sicka_gp.MyServer.Configuration.ConfigSettings;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 import cz.Sicka_gp.MyServer.utils.Replacer;
 
 public class JoinQuitKickMessages {
@@ -37,7 +37,7 @@ public class JoinQuitKickMessages {
 	
 	public static String Group(Player p){
 		if((plugin.getPluginsManager().getVault().getChat() == null) || (plugin.getPluginsManager().getVault().getPermission() == null)){
-			plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.PermissionPluginNotFound));
+			plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.PermissionPluginNotFound));
 			return "Default";
 		}
 		if(Messages_UseDefaultMessage){
@@ -58,11 +58,16 @@ public class JoinQuitKickMessages {
 	    		if (message != null){
 	    			pl.sendMessage(message);
 	    		}else{
-	    			plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.JoinMessageNull));
+	    			message = Replacer.replaceJoinQuitmsg(p, "Messages.Groups.Default.JoinMessage");
+	    			if(message != null){
+	    				pl.sendMessage(message);
+	    			}else{
+	    				plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.JoinMessageNull));
+	    			}
 	    		}
 	    	}
 	    }
-	    plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + NewMessageList.JoinMessage));
+	    plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + MessageList.JoinMessage));
 	}
 	
 	public static void SendCustomQuitMessage(Player p){
@@ -80,11 +85,16 @@ public class JoinQuitKickMessages {
 	    		if (message != null){
 	    			pl.sendMessage(message);
 	    		}else{
-	    			plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.QuitnMessageNull));
+	    			message = Replacer.replaceJoinQuitmsg(p, "Messages.Groups.Default.QuitMessage");
+	    			if(message != null){
+	    				pl.sendMessage(message);
+	    			}else{
+	    				plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.QuitnMessageNull));
+	    			}
 	    		}
 	    	}
 	    }
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + NewMessageList.QuitnMessage));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + MessageList.QuitnMessage));
 	}
 	
 	public static void SendCustomKickMessage(Player p, String reason){
@@ -99,18 +109,19 @@ public class JoinQuitKickMessages {
 		String message = Replacer.replaceJoinQuitmsg(p, path);
 		for (Player pl : Bukkit.getServer().getOnlinePlayers()){
 	    	if (pl.canSee(p)){
-	    		if (message != null){
-	    			if (message.contains("{REASON}")){
-	    				message = message.replace("{REASON}", reason);
-	    	            pl.sendMessage(message);
-	    			}else{
-	    				pl.sendMessage(message);	
-	    			}
+	    		if(message != null){
+	    			message = message.replace("{REASON}", reason);
+	    			pl.sendMessage(message);
 	    		}else{
-	    			plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.KickMessageNull));
+	    			message = Replacer.replaceJoinQuitmsg(p, "Messages.Groups.Default.KickMessage");
+	    			if(message != null){
+	    				pl.sendMessage(message);
+	    			}else{
+	    				plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.KickMessageNull));
+	    			}
 	    		}
 	    	}
 	    }
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + NewMessageList.KickMessage));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.pluginName + AnsiColor.GREEN + p.getName() + AnsiColor.BLUE + MessageList.KickMessage));
 	}
 }

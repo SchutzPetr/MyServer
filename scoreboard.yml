@@ -3,6 +3,8 @@
 #  ----------------------------------------------------#
 #  Author: Sicka_gp                                    #
 #  ----------------------------------------------------#
+Config_version: 1
+
 Scoreboard: 
    #Enable Scoreboard
    Enable: true

@@ -14,7 +14,7 @@ import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
 
 public class Lang {
 	private FileConfiguration config = null;
-	private File configfile = null;
+	public File configfile = null;
 	private MyServer plugin;
 	
 	public Lang(MyServer instance){

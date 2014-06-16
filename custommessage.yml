@@ -3,6 +3,8 @@
 #  ----------------------------------------------------#
 #  Author: Sicka_gp                                    #
 #  ----------------------------------------------------#
+Config_version: 1
+
 Messages:
    #Set server full message
    FullServer: '&dServer is full!'
@@ -62,4 +64,4 @@ Automessage:
    #Enable Automessage
    Enable: true
    #Prefix for Automessage   
-   Prefix: '&f[&6ConfigurableMessage&f] '
+   Prefix: '&f[&6MyServer&f] '

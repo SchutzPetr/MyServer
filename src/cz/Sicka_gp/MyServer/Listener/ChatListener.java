@@ -23,11 +23,7 @@ public class ChatListener implements Listener {
 	private static boolean Messages_EnableTabList;
 
 	public ChatListener(MyServer m){
-		  plugin = m;
-		  init();
-	}
-	
-	public static void init(){
+		plugin = m;
 		Badwords_Enable = ConfigSettings.Badwords_Enable;
 		Messages_EnableTabList = ConfigSettings.Messages_EnableTabList;
 		badWords = plugin.getConfigManager().getBadwordsConfig().getConfig().getStringList("badwords");

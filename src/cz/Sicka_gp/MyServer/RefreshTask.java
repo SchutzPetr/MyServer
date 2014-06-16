@@ -9,7 +9,7 @@ import cz.Sicka_gp.MyServer.Scoreboard.SBManager;
 import cz.Sicka_gp.MyServer.Scoreboard.ScoreboardPlayerData;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 
 public class RefreshTask {
 	private static long RefreshInterval;
@@ -52,7 +52,7 @@ public class RefreshTask {
 	}
 	
 	public static void StopScoreboardRefreshTask(){
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.StoppedRefreshTask));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.StoppedRefreshTask));
     	plugin.getServer().getScheduler().cancelTask(refreshtaskIDScoreboard);
     }
 }

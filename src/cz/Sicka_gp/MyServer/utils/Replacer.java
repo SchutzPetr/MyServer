@@ -261,7 +261,7 @@ public class Replacer{
 			prefix = prefix.concat(p.getName());
 			return prefix;
 		}else{
-			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.ChatPluginNotFound));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.ChatPluginNotFound));
 			return p.getDisplayName();
 		}
 	}

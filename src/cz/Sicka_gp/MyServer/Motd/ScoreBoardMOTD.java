@@ -3,8 +3,6 @@ package cz.Sicka_gp.MyServer.Motd;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -14,8 +12,6 @@ import cz.Sicka_gp.MyServer.MyServer;
 import cz.Sicka_gp.MyServer.API.ScoreBoardAPI;
 import cz.Sicka_gp.MyServer.Configuration.ConfigSettings;
 import cz.Sicka_gp.MyServer.Scoreboard.ScoreboardItemID;
-import cz.Sicka_gp.MyServer.utils.AnsiColor;
-import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
 import cz.Sicka_gp.MyServer.utils.ScoreboardLength;
 
 public class ScoreBoardMOTD {
@@ -78,13 +74,11 @@ public class ScoreBoardMOTD {
 						  UpdateMotd(p, i, number, list.get(number));
 						  p.playSound(p.getLocation(), Sound.NOTE_PLING, 4.0F, p.getLocation().getPitch());
 						  number--;
-						  plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, "aaa"));
 					  }else{
 						  ScoreBoardAPI.RemoveSidebarFromSlot(p, DisplaySlot.SIDEBAR);
 						  p.playSound(p.getLocation(), Sound.LEVEL_UP, 4.0F, p.getLocation().getPitch());
 						  number--;
 						  CancelTask(p);
-						  plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, "oooo"));
 					  }
 				  }
 			  }

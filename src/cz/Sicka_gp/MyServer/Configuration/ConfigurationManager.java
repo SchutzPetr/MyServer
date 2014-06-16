@@ -1,5 +1,7 @@
 package cz.Sicka_gp.MyServer.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import cz.Sicka_gp.MyServer.MyServer;
@@ -12,7 +14,7 @@ import cz.Sicka_gp.MyServer.Configuration.Configs.MOTDConfig;
 import cz.Sicka_gp.MyServer.Configuration.Configs.ScoreboardConfig;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 
 public class ConfigurationManager {
 	private MyServer plugin;
@@ -23,35 +25,115 @@ public class ConfigurationManager {
 	private HolographicDisplaysConfig hdc; 
 	private ScoreboardConfig sc;
 	private MOTDConfig motdc;
-	private NewMessageList msglist;
+	private MessageList msglist;
+	private static List<String> outconf;
 	
 	public ConfigurationManager(MyServer instance){
 		plugin = instance;
 		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Loading language..."));
 		initLang();
 		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Initialization language..."));
-		msglist = new NewMessageList(plugin);
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.LoadingConfigs));
+		msglist = new MessageList(plugin);
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.LoadingConfigs));
 		initConfig();
 		initCustomMessageConfig();
 		initBadwordsConfig();
-		initHolographicDisplaysConfig();
+		//initHolographicDisplaysConfig();
 		initScoreboardConfig();
 		initMOTDConfig();
 		
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.ConfigsLoaded));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.ConfigsLoaded));
 	}
 	
 	public void SaveConfigs(){
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.SavingConfigs));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.SavingConfigs));
 		getConfig().saveConfig();
 		getLang().saveConfig();
 		getCustomMessageConfig().saveConfig();
 		getBadwordsConfig().saveConfig();
-		getHolographicDisplaysConfig().saveConfig();
+		//getHolographicDisplaysConfig().saveConfig();
 		getScoreboardConfig().saveConfig();
 		getMOTDConfig().saveConfig();
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.ConfigsSaved));
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.ConfigsSaved));
+	}
+	
+	public void ReloadConfigs(){
+		getConfig().reloadConfig();
+		getLang().reloadConfig();
+		getCustomMessageConfig().reloadConfig();
+		getBadwordsConfig().reloadConfig();
+		//getHolographicDisplaysConfig().reloadConfig();
+		getScoreboardConfig().reloadConfig();
+		getMOTDConfig().reloadConfig();
+	}
+	
+	public void CheckConfigVersion(){
+		int a = getConfig().getConfig().getInt("Config_version");
+		int b = getLang().getConfig().getInt("Config_version");
+		int c = getCustomMessageConfig().getConfig().getInt("Config_version");
+		int d = getBadwordsConfig().getConfig().getInt("Config_version");
+		int e = getHolographicDisplaysConfig().getConfig().getInt("Config_version");
+		int f = getScoreboardConfig().getConfig().getInt("Config_version");
+		int g = getMOTDConfig().getConfig().getInt("Config_version");
+		if(a != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getConfig().configfile.getName());
+		}
+		if(b != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getLang().configfile.getName());
+		}
+		if(c != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getCustomMessageConfig().configfile.getName());
+		}
+		if(d != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getBadwordsConfig().configfile.getName());
+		}
+		if(e != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getHolographicDisplaysConfig().configfile.getName());
+		}
+		if(f != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getScoreboardConfig().configfile.getName());
+		}
+		if(g != 1){
+			if(outconf == null){
+				outconf = new ArrayList<String>();
+			}
+			outconf.add(getMOTDConfig().configfile.getName());
+		}
+		if(outconf != null){
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.ConfigOutdated));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, "Configs: " + ConfigStatus()));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.DARK_RED, MessageList.DisablingPlugin));
+			plugin.setDisableMyServer(true);
+		}
+	}
+	
+	public static String ConfigStatus(){
+		StringBuilder configs = new StringBuilder();
+		for(String conf : outconf){
+			if(configs.length() > 0){
+				configs.append(", ");
+			}
+			configs.append(conf);
+		}
+		return configs.toString();
 	}
 	
 	private void initConfig(){
@@ -102,6 +184,7 @@ public class ConfigurationManager {
 		return badw;
 	}
 	
+	@SuppressWarnings("unused")
 	private void initHolographicDisplaysConfig(){
 		hdc = new HolographicDisplaysConfig(plugin);
 		
@@ -138,7 +221,7 @@ public class ConfigurationManager {
 		return motdc;
 	}
 
-	public NewMessageList getMessageList() {
+	public MessageList getMessageList() {
 		return msglist;
 	}
 	

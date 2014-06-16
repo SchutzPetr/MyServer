@@ -57,7 +57,7 @@ public class Automessages {
 			@Override
 			public void run() {
 				try{
-					Automessages.broadcastMessages("plugins/ConfigurableMessages/messages.txt");
+					Automessages.broadcastMessages("plugins/MyServer/messages.txt");
 				} catch(IOException e){
 					
 				}

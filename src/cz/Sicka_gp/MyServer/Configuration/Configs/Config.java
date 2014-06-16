@@ -11,11 +11,11 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import cz.Sicka_gp.MyServer.MyServer;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 
 public class Config {
 	private FileConfiguration config = null;
-	private File configfile = null;
+	public File configfile = null;
 	private MyServer plugin;
 	
 	public Config(MyServer instance){
@@ -52,7 +52,7 @@ public class Config {
 	    try {
 	        getConfig().save(configfile);
 	    } catch (IOException ex) {
-	    	plugin.getLog().log(Level.SEVERE, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.CouldNotSaveConfig  + configfile), ex);
+	    	plugin.getLog().log(Level.SEVERE, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.CouldNotSaveConfig  + configfile), ex);
 	    }
 	}
 	
@@ -62,7 +62,7 @@ public class Config {
 	    }
 	    if (!configfile.exists()) {            
 	         plugin.saveResource("config.yml", false);
-	         plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.CreateConfigFile  + AnsiColor.GOLD + configfile.getName()));
+	         plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.CreateConfigFile  + AnsiColor.GOLD + configfile.getName()));
 	    }
 	}
 

@@ -4,9 +4,9 @@ version: 0.0.1
 author: Sicka_gp
 softdepend: [Vault, Stats, mcMMO, GeoIPTools, Heroes, pvpstats, Factions, SimpleClans, ProtocolLib, HolographicDisplays]
 commands:
-   configurablemessages: 
+   myserver: 
      description: Config reload/create and automessage
-     aliases: [cm, confmsg]
+     aliases: [my, mys]
    sidebar: 
      aliases: [s, side]
      description: Show or hide sidebar

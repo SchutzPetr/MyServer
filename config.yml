@@ -3,7 +3,8 @@
 #  ----------------------------------------------------#
 #  Author: Sicka_gp                                    #
 #  ----------------------------------------------------#
+Config_version: 1
+
 Plugin:
-   Config_version: 1
    Plugin_version: 0
    AutoUpdate: true

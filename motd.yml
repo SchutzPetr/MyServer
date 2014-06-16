@@ -1,78 +1,65 @@
 #  ----------------------------------------------------#
 #  MyServer - Configuration file                       #
 #  ----------------------------------------------------#
-#  Author: Sicka_gp                                    #
+#  Author: Sicka_gp                                   #
 #  ----------------------------------------------------#
-MOTD:
-   ChatMotd:
-      #Enable chatmotd
-      Enable: true
-      #Dynamic messages
+Config_version: 1
+
+ChatMotd:
+  Enable: true
+  Messages:
+  - '&2---------------------------------------------------------------------------------------'
+  - '&9Welcome to&6 server&c!'
+  - '&9There are &c{ONLINE} &9out of maximum &c{MAX_ONLINE} &9players online.'
+  - '&9Now online: {ONLINE_PLAYERS}'
+  - '&2---------------------------------------------------------------------------------------'
+ServerListMotd:
+  PlayerList:
+    Enable: false
+    Messages:
+    - '&l&5ConfigurableMessages'
+    - '&8http://dev.bukkit.org/server-mods/configurable-messages/'
+    - '&8Author: Sicka_gp'
+  DefaultMOTD:
+    Messages:
+    - '&6Welcome to {SERVER_NAME}!{NEW_LINE} &9{SERVER_IP} !'
+  PersonalMOTD:
+    Enable: true
+    Faces: false
+    Unknown: '&6Welcome Guest!{NEW_LINE} &9{SERVER_IP} !'
+    Messages:
+    - '&6Welcome {NAME} {NEW_LINE} &9{SERVER_IP}'
+ScoreBoardMotd:
+  Enable: true
+  Interval: 3
+  Messages:
+  - '&9Welcome to&6 {3}&9!'
+  - '&9Now is online&6: {1} &aplayers'
+  - '&9Time is&6: {5}'
+  - '&9Enjoy the game&6!'
+  ScoreBoardItems:
+  - '&aOnline;%online_players'
+  - '&aBalance;%bal'
+  - '&aPing;%ping'
+HolographicMOTD:
+  Enable: true
+  DisplayLength: 15
+  Holograms:
+    Default:
+      Location:
+        x: -5
+        y: 0
+        z: -5
+      Title: Hooo
       Messages:
-      - '&2---------------------------------------------------------------------------------------'
-      - '&9Welcome to&6 server&c!'
-      - '&9There are &c{ONLINE} &9out of maximum &c{MAX_ONLINE} &9players online.'
-      - '&9Now online: {ONLINE_PLAYERS}'
-      - '&2---------------------------------------------------------------------------------------'
-   ServerListMotd:
-      PlayerList:
-         #Enable playerlist motd
-         Enable: false
-         #Dynamic messages
-         Messages:
-         - '&l&5ConfigurableMessages'
-         - '&8http://dev.bukkit.org/server-mods/configurable-messages/'
-         - '&8Author: Sicka_gp'
-      DefaultMOTD:
-         #Dynamic messages
-         Messages:
-         - '&6Welcome to {SERVER_NAME}!{NEW_LINE} &9{SERVER_IP} !'
-      PersonalMOTD:
-         #Enable personal motd
-         Enable: true
-         #Enable faces
-         #This may cause a lag of server
-         Faces: false
-         #This message will be used if the Player did not play on the server or could not be found in the database.
-         Unknown: '&6Welcome Guest!{NEW_LINE} &9{SERVER_IP} !'
-         #Dynamic messages
-         Messages:
-         - '&6Welcome {NAME} {NEW_LINE} &9{SERVER_IP}'
-   ScoreBoardMotd:
-      #Enable Scoreboard Motd
-      Enable: true
-      #Update interval
-      Interval: 3
-      #Scoreboard title
-      #The Title must have under 32 characters
-      Messages: 
-      - '&9Welcome to&6 {3}&9!'
-      - '&9Now is online&6: {1} &aplayers'
-      - '&9Time is&6: {5}'
-      - '&9Enjoy the game&6!'
-      ScoreBoardItems:
-      #The Title must have under 16 characters
-      #-'<ScoreName>;<ScoreValue>' 
+      - ''
+    Statistics:
+      Location:
+        x: 5
+        y: 0
+        z: 5
+      Title: Statistics
+      Messages:
       - '&aOnline;%online_players'
       - '&aBalance;%bal'
       - '&aPing;%ping'
-   HolographicMOTD:
-      Enable: false
-      DisplayLength: 15
-      Holograms:
-         Default:
-            Location:
-               x: -5
-               y: 0
-               z: -5
-            Title: ''
-            Messages:
-            - ''
-         Statistics:
-            Location:
-               x: 5
-               y: 0
-               z: 5
-            Title: 'Statistics'
-            Messages:
-            - ''

@@ -14,7 +14,7 @@ public class ScoreboardLength {
 	public static String checkLength(String check, int limit) {
         if(check.length() > limit){
             String cut = check.substring(0, limit + 1);
-            plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, " String: " + check + NewMessageList.isLongerThanAllowed + limit + " {" + check.length() + " > " + limit + "}"));
+            plugin.getLog().log(Level.WARNING, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, " String: " + check + MessageList.isLongerThanAllowed + limit + " {" + check.length() + " > " + limit + "}"));
             return cut;
         }
         return check;

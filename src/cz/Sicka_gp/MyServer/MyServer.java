@@ -1,5 +1,6 @@
 package cz.Sicka_gp.MyServer;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ import cz.Sicka_gp.MyServer.Commands.CommandManager;
 import cz.Sicka_gp.MyServer.Configuration.ConfigSettings;
 import cz.Sicka_gp.MyServer.Configuration.ConfigurationManager;
 import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
+import cz.Sicka_gp.MyServer.Listener.ChatListener;
 import cz.Sicka_gp.MyServer.Listener.JQKListener;
 import cz.Sicka_gp.MyServer.Motd.ChatMotd;
 import cz.Sicka_gp.MyServer.Motd.ScoreBoardMOTD;
@@ -26,7 +28,7 @@ import cz.Sicka_gp.MyServer.Scoreboard.CountDown.ScoreBoardCountDown;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
 import cz.Sicka_gp.MyServer.utils.HolographicDisplaysManager;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 import cz.Sicka_gp.MyServer.utils.PlayerGroup;
 import cz.Sicka_gp.MyServer.utils.Replacer;
 import cz.Sicka_gp.MyServer.utils.ScoreItemsReplacerString;
@@ -41,29 +43,34 @@ public class MyServer extends JavaPlugin{
 	private PlayerGroup playergroup;
 	private AnsiColor ans;
 	private JQKListener jqkl;
-	private JoinQuitKickMessages jqkm;
-	private ConfigSettings configsettings;
-	private TabListManager cmtl;
-	private ScoreboardItemID sid;
-	private JoinQuitKickMessages cmjqk;
-	private Permissions perm;
-	private Automessages cma;
-	private Replacer cmss;
-	private SBManager score;
-	private ScoreBoardCountDown sbcd;
-	private ScoreBoardMOTD sbm;
-	private ServerListMotd motd;
-	private ScoreboardSettings sbset;
-	private ChatMotd cm;
-	private ScoreboardLength sl;
-	private ScoreboardItemsIDReplacer sbidr;
-	private ScoreBoardAPI sbapi;
-	private ScoreItemsReplacerString scorestring;
+	protected JoinQuitKickMessages jqkm;
+	protected ConfigSettings configsettings;
+	protected TabListManager cmtl;
+	protected ScoreboardItemID sid;
+	protected JoinQuitKickMessages cmjqk;
+	protected Permissions perm;
+	protected Automessages cma;
+	protected Replacer cmss;
+	protected SBManager score;
+	protected ScoreBoardCountDown sbcd;
+	protected ScoreBoardMOTD sbm;
+	protected ServerListMotd motd;
+	protected ScoreboardSettings sbset;
+	protected ChatMotd cm;
+	protected ScoreboardLength sl;
+	protected ScoreboardItemsIDReplacer sbidr;
+	protected ScoreBoardAPI sbapi;
+	protected ScoreItemsReplacerString scorestring;
+	protected ChatListener chatli;
 	private static boolean DisableMyServer;
 	
 	
 	public void onEnable(){
 		plugin = this;
+		File message = new File(this.getDataFolder(), "messages.txt");
+		if (!message.exists()) {
+			   saveResource("messages.txt", true);
+		}
 		ans = new AnsiColor();
 		configmanager = new ConfigurationManager(this);
 		configsettings = new ConfigSettings(this);
@@ -90,34 +97,37 @@ public class MyServer extends JavaPlugin{
 		sbidr = new ScoreboardItemsIDReplacer(this);
 		sbapi = new ScoreBoardAPI(this);
 		scorestring = new ScoreItemsReplacerString(this);
+		new CommandManager(this);
+		chatli = new ChatListener(this);
 		
 		
 		
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(jqkl, this);
-		getCommand("configurablemessages").setExecutor(new CommandManager(this));
+		pm.registerEvents(chatli, this);
+		getCommand("myserver").setExecutor(new CommandManager(this));
 		getCommand("sidebar").setExecutor(new CommandManager(this));
 		getCommand("countdown").setExecutor(new CommandManager(this));
 		try{
 			Metrics metrics = new Metrics(this);
 			metrics.start();
-			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.Metrics));
+			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.Metrics));
 		}catch(IOException e){
-			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.Unable_Metrics));
+			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.Unable_Metrics));
 		}catch(Throwable t){
-			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.Unable_Metrics));
+			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.Unable_Metrics));
 		}
 		
 		if(DisableMyServer){
-			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.DARK_AQUA, NewMessageList.Version));
+			getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.DARK_AQUA, MessageList.Version));
 			Bukkit.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.BLUE, "-------------------------------------------------------"));
-		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.Authors));
-		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, NewMessageList.Version));
+		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.Author));
+		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.Version));
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.BLUE, "-------------------------------------------------------"));
-		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, AnsiColor.BOLD + NewMessageList.Enable));
+		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, AnsiColor.BOLD + MessageList.Enable));
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.BLUE, "-------------------------------------------------------"));
 	}
 	
@@ -126,8 +136,8 @@ public class MyServer extends JavaPlugin{
 		RefreshTask.StopScoreboardRefreshTask();
 		if(getPluginsManager().getHolographicDisplays().isHolographicDisplays())HolographicDisplaysManager.onDisablePlugin();
 		getServer().getScheduler().cancelTasks(plugin);
-		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.CancelAllTasks));
-		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.DisablePlugin));
+		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.CancelAllTasks));
+		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.DisablePlugin));
 	}
 	
 	public void setDisableMyServer(boolean dismyserver){

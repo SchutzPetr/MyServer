@@ -10,7 +10,7 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import cz.Sicka_gp.MyServer.MyServer;
 import cz.Sicka_gp.MyServer.utils.AnsiColor;
 import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
-import cz.Sicka_gp.MyServer.utils.NewMessageList;
+import cz.Sicka_gp.MyServer.utils.MessageList;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
@@ -41,30 +41,30 @@ public class VaultPlugin {
 			permissionFound = setupPermissions();
 			chatFound = setupChat();
 			vaultboolean = true;
-			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.VaultFound));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.VaultFound));
 			if(economyFound){
-				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.SuccessfulhookedEconomy)+ econ.getName());
+				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.SuccessfulhookedEconomy)+ econ.getName());
 			}else{
-				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.EconomyPluginNotFound));
+				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.EconomyPluginNotFound));
 			}
 	        if(permissionFound){
 	        	if(permission.getName().equals("SuperPerms")){
-	        		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.UnsupportedPermissionPlugin));
+	        		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.UnsupportedPermissionPlugin));
 	        		permissionFound = false;
 	        	}else{
-	        		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.SuccessfulhookedPermission)+ permission.getName());
+	        		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.SuccessfulhookedPermission)+ permission.getName());
 	        	}
 			}else{
-				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.PermissionPluginNotFound));
+				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.PermissionPluginNotFound));
 			}
 	        if(chatFound){
-	        	plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, NewMessageList.SuccessfulhookedChat) + chat.getName());
+	        	plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.SuccessfulhookedChat) + chat.getName());
 			}else{
-				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.ChatPluginNotFound));
+				plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.ChatPluginNotFound));
 			}
 		}else{
-			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, NewMessageList.UnableVault));
-			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.DARK_RED, NewMessageList.DisablingPlugin));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, MessageList.UnableVault));
+			plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.DARK_RED, MessageList.DisablingPlugin));
 			plugin.setDisableMyServer(true);
 		}
 	}

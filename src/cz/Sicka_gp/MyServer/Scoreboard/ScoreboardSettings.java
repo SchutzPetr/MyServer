@@ -8,7 +8,7 @@ import java.util.Map;
 import cz.Sicka_gp.MyServer.MyServer;
 
 public class ScoreboardSettings {
-	private MyServer plugin;
+	protected MyServer plugin;
 	private static List<String> dtitle;
 	private static List<String> dworld;
 	private static Map<String, Byte> items;
@@ -16,17 +16,8 @@ public class ScoreboardSettings {
 	private static Map<String, List<String>> DynamicTitle = new HashMap<String, List<String>>();
 	private static Map<String, Map<String, Byte>> PermItems = new HashMap<String, Map<String, Byte>>();
 	
-	//private static String stitle;
-	//private static int dupdate;
-	
 	public ScoreboardSettings(MyServer instance){
 		plugin = instance;
-		init();
-	}
-	
-	@Deprecated
-	private void init() {
-		//dupdate = plugin.getConfig().getInt("Sidebar.DynamicUpdateInterval", 10);
 	}
 
 	public static void addToPermItems(String key1, String key2, Byte value) {

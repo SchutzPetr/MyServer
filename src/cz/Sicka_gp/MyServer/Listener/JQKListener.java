@@ -2,8 +2,6 @@ package cz.Sicka_gp.MyServer.Listener;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -28,8 +26,6 @@ import cz.Sicka_gp.MyServer.Motd.ScoreBoardMOTD;
 import cz.Sicka_gp.MyServer.Motd.ServerListMotd;
 import cz.Sicka_gp.MyServer.Scoreboard.SBManager;
 import cz.Sicka_gp.MyServer.Scoreboard.ScoreboardPlayerData;
-import cz.Sicka_gp.MyServer.utils.AnsiColor;
-import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
 import cz.Sicka_gp.MyServer.utils.HolographicDisplaysManager;
 import cz.Sicka_gp.MyServer.utils.Replacer;
 
@@ -72,7 +68,6 @@ public class JQKListener implements Listener{
 		if(Scoreboard_Enable)SBManager.Sidebar(p);
 		if(PersonalMOTD_Enable)ServerListMotd.AddToPData(p);
 		if(ScoreBoardMotd_Enable)ScoreBoardMOTD.CreateMotdSidebar(p);
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.RED, ScoreBoardMotd_Enable + ""));
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(p.getUniqueId());
 		if(!(offlinePlayer.hasPlayedBefore())){
 			if(FirstMessageEnable){
