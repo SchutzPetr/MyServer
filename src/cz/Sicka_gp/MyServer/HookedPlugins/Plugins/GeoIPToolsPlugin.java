@@ -6,11 +6,11 @@ import org.bukkit.plugin.PluginManager;
 
 import uk.org.whoami.geoip.GeoIPLookup;
 import uk.org.whoami.geoip.GeoIPTools;
-
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 
 public class GeoIPToolsPlugin {
-	private static MyServer plugin;
+	protected static MyServer plugin;
 	private static boolean geoip;
 	private static GeoIPLookup geo;
 	
@@ -25,7 +25,7 @@ public class GeoIPToolsPlugin {
     	
     	if(geopl != null && geopl.isEnabled()){
         	setGeoIPLookup();
-        	plugin.getPluginsManager().getPluginList().add(geopl);
+        	PluginsManager.PluginList.add(geopl);
     	}
     }
 	

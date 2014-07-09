@@ -8,9 +8,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 
 public class SimpleClansPlugin {
-	private static MyServer plugin;
+	protected static MyServer plugin;
 	private static ClanManager clanManager;
 	private static boolean isclan;
 
@@ -25,7 +26,7 @@ public class SimpleClansPlugin {
     	
     	if(simpleclanspl != null && simpleclanspl.isEnabled()){
     		clanManager = SimpleClans.getInstance().getClanManager();
-    		plugin.getPluginsManager().getPluginList().add(simpleclanspl);
+    		PluginsManager.PluginList.add(simpleclanspl);
     		isclan = pm.getPlugin("SimpleClans") != null;
     	}
     }

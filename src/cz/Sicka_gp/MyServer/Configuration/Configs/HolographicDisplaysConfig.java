@@ -3,6 +3,7 @@ package cz.Sicka_gp.MyServer.Configuration.Configs;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 import org.bukkit.configuration.file.FileConfiguration;
@@ -34,7 +35,7 @@ public class HolographicDisplaysConfig {
 	    // Look for defaults in the jar
 	    InputStream defConfigStream = plugin.getResource("holographicdisplays.yml");
 	    if (defConfigStream != null) {
-	        YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
+	    	YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defConfigStream));
 	        config.setDefaults(defConfig);
 	    }
 	}

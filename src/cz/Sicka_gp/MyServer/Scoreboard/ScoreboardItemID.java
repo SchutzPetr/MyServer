@@ -45,6 +45,15 @@ public class ScoreboardItemID {
 		else if(ScoreItemsList.Health.equals(key)){
         	return 11;
         }
+		else if(ScoreItemsList.X.equals(key)) {
+			return 12;
+        }
+		else if(ScoreItemsList.Y.equals(key)) {
+			return 13;
+        }
+		else if(ScoreItemsList.Z.equals(key)) {
+			return 14;
+        }
         //Vault
 		else if(ScoreItemsList.Balance.equals(key)){
 			return 20;

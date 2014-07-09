@@ -19,6 +19,7 @@ import cz.Sicka_gp.MyServer.Automessages.Automessages;
 import cz.Sicka_gp.MyServer.Commands.CommandManager;
 import cz.Sicka_gp.MyServer.Configuration.ConfigSettings;
 import cz.Sicka_gp.MyServer.Configuration.ConfigurationManager;
+import cz.Sicka_gp.MyServer.Configuration.ConfigUpdater.LangConfigUpdate;
 import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 import cz.Sicka_gp.MyServer.Listener.ChatListener;
 import cz.Sicka_gp.MyServer.Listener.JQKListener;
@@ -128,6 +129,12 @@ public class MyServer extends JavaPlugin{
 			Bukkit.getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
+		getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
+			public void run(){
+				new LangConfigUpdate(MyServer.getPlugin());
+			}
+		}, 2*20);
+		
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.BLUE, "-------------------------------------------------------"));
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.Author));
 		getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.Version));

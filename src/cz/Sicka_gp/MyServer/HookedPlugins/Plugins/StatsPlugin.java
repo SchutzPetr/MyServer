@@ -8,10 +8,11 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 
 public class StatsPlugin {
 	private static StatsAPI api;
-	private static MyServer plugin;
+	protected static MyServer plugin;
 	private static boolean isStats;
 	
 	public StatsPlugin(MyServer instance){
@@ -26,7 +27,7 @@ public class StatsPlugin {
     	if(stats != null && stats.isEnabled()){
     		setupStatsAPI();
     		isStats = pm.getPlugin("Stats") != null;
-    		plugin.getPluginsManager().getPluginList().add(stats);
+    		PluginsManager.PluginList.add(stats);
     	}
 	}
 	

@@ -71,7 +71,7 @@ public class ScoreItemsReplacerString {
 	 //Economy
 	private static String getEconomyItems(String key, Player p){
 		message = key;
-		message = message.replace(ScoreItemsList.Balance, plugin.getPluginsManager().getVault().getEconomy().getBalance(p.getName()) + "");
+		message = message.replace(ScoreItemsList.Balance, plugin.getPluginsManager().getVault().getEconomy().getBalance(p) + "");
 		return message;
 	}
 	

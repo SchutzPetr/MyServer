@@ -17,7 +17,7 @@ import cz.Sicka_gp.MyServer.utils.ColouredConsoleSender;
 import cz.Sicka_gp.MyServer.utils.MessageList;
 
 public class ConfigurationManager {
-	private MyServer plugin;
+	private static MyServer plugin;
 	private Config config;
 	private static Lang lang;
 	private CustomMessageConfig cmc;
@@ -25,15 +25,12 @@ public class ConfigurationManager {
 	private HolographicDisplaysConfig hdc; 
 	private ScoreboardConfig sc;
 	private MOTDConfig motdc;
-	private MessageList msglist;
+	private static MessageList msglist;
 	private static List<String> outconf;
 	
 	public ConfigurationManager(MyServer instance){
 		plugin = instance;
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Loading language..."));
-		initLang();
-		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Initialization language..."));
-		msglist = new MessageList(plugin);
+		initLanguage();
 		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.YELLOW, MessageList.LoadingConfigs));
 		initConfig();
 		initCustomMessageConfig();
@@ -43,6 +40,13 @@ public class ConfigurationManager {
 		initMOTDConfig();
 		
 		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GREEN, MessageList.ConfigsLoaded));
+	}
+	
+	public static void initLanguage(){
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Loading language..."));
+		initLang();
+		plugin.getLog().log(Level.INFO, ColouredConsoleSender.sendConsoleMessage(AnsiColor.GOLD, "[MyServer] Initialization language..."));
+		msglist = new MessageList(plugin);
 	}
 	
 	public void SaveConfigs(){
@@ -148,7 +152,7 @@ public class ConfigurationManager {
 		return config;
 	}
 	
-	private void initLang(){
+	private static void initLang(){
 		lang = new Lang(plugin);
 		
 		lang.saveDefaultConfig();

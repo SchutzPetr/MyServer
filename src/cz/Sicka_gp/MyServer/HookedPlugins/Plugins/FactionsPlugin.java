@@ -9,10 +9,11 @@ import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.entity.UPlayer;
 
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 
 public class FactionsPlugin {
 	private static boolean factions;
-	private static MyServer plugin;
+	protected static MyServer plugin;
 	private UPlayer uplayer;
 	private Faction faction;
 
@@ -27,7 +28,7 @@ public class FactionsPlugin {
     	
     	if(Factionspl != null && Factionspl.isEnabled()){
     		factions = pm.getPlugin("Factions") != null;
-			plugin.getPluginsManager().getPluginList().add(Factionspl);
+    		PluginsManager.PluginList.add(Factionspl);
     	}
     }
 

@@ -211,9 +211,13 @@ public class Replacer{
 			if(players.length() > 0){
 				players.append(", ");
 			}
-			String prefix = plugin.getPluginsManager().getVault().getChat().getPlayerPrefix(player);
-			prefix = prefix.concat(player.getName());
-			players.append(prefix);
+			if(plugin.getPluginsManager().getVault().isChatFound() && plugin.getPluginsManager().getVault().getChat() != null){
+				String prefix = plugin.getPluginsManager().getVault().getChat().getPlayerPrefix(player);
+				prefix = prefix.concat(player.getName());
+				players.append(prefix);
+			}else{
+				players.append(player.getDisplayName());
+			}
 		}
 		return players.toString();
 	}

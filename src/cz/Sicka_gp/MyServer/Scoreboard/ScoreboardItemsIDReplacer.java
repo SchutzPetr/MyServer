@@ -139,13 +139,25 @@ public class ScoreboardItemsIDReplacer {
             return (int) p.getHealth();
         }
 		
+		else if(key == 12){
+        	return (int) p.getLocation().getX();
+        }
+		
+		else if(key == 13){
+        	return (int) p.getLocation().getY();
+        }
+		
+		else if(key == 14){
+        	return (int) p.getLocation().getZ();
+        }
+		
 		return -1;
 	}
 	
 	 //Economy
 	private static int getEconomyItems(byte key, Player p){
 		if(key == 20){
-			return (int) plugin.getPluginsManager().getVault().getEconomy().getBalance(p.getName());
+			return (int) plugin.getPluginsManager().getVault().getEconomy().getBalance(p);
 		}
 		
 		return -1;

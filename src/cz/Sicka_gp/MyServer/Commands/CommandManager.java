@@ -198,9 +198,9 @@ public class CommandManager implements CommandExecutor{
 			if(cmd.equalsIgnoreCase("myserver")){
 				if((args == null) || (args.length < 1)){
 					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.GRAY + "++++" + AnsiColor.DARK_GREEN + "-----------[ " + AnsiColor.GOLD + plugin.getName() + AnsiColor.DARK_GREEN + " ]-----------" + AnsiColor.GRAY + "++++");
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Author" + AnsiColor.GRAY + ": " + AnsiColor.GOLD + plugin.getDescription().getAuthors());
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Version" + AnsiColor.GRAY + ": " + AnsiColor.GOLD + plugin.getDescription().getVersion());
-					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + AnsiColor.AQUA + "Reload plugin " + AnsiColor.GRAY + ": " + AnsiColor.GOLD + "/my reload");
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.AuthorCommandMsg + plugin.getDescription().getAuthors()));
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.VersionCommandMsg + plugin.getDescription().getVersion()));
+					con.sendMessage(AnsiColor.GREEN + MessageList.pluginName + ColouredConsoleSender.ReplaceAnsiColor(MessageList.ReloadPluginCommand + "/my reload"));
 					return true;
 				}
 				else if(args[0].equalsIgnoreCase("reload") && args.length == 1){

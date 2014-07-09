@@ -5,6 +5,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 import cz.Sicka_gp.MyServer.HookedPlugins.Plugins.Managers.ProtocolLibManager;
 
 public class ProtocolLibPlugin {
@@ -25,7 +26,7 @@ public class ProtocolLibPlugin {
     	if(ProtocolLibpl != null && ProtocolLibpl.isEnabled()){
     		isProtocolLib = pm.getPlugin("ProtocolLib") != null;
     		plibmanager = new ProtocolLibManager(plugin);
-    		plugin.getPluginsManager().getPluginList().add(ProtocolLibpl);
+    		PluginsManager.PluginList.add(ProtocolLibpl);
     	}
 	}
 	

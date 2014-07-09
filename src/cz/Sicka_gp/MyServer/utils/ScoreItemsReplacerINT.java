@@ -114,13 +114,22 @@ public class ScoreItemsReplacerINT {
         if(ScoreItemsList.Health.equals(key)) {
             return (int) p.getHealth();
         }
+        if(ScoreItemsList.X.equals(key)) {
+        	return (int) p.getLocation().getX();
+        }
+        if(ScoreItemsList.Y.equals(key)) {
+        	return (int) p.getLocation().getY();
+        }
+        if(ScoreItemsList.Z.equals(key)) {
+        	return (int) p.getLocation().getZ();
+        }
 		return -1;
 	}
 	
 	 //Economy
 	private static int getEconomyItems(String key, Player p){
 		if(ScoreItemsList.Balance.equals(key)){
-			return (int) plugin.getPluginsManager().getVault().getEconomy().getBalance(p.getName());
+			return (int) plugin.getPluginsManager().getVault().getEconomy().getBalance(p);
 		}
 		return -1;
 	}

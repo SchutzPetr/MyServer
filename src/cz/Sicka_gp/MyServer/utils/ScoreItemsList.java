@@ -14,6 +14,10 @@ public class ScoreItemsList {
     public static final String EXP = "%exp";
     public static final String XPTOLEVEL = "%xp_to_level";
     public static final String Health = "%health";
+    public static final String X = "%x";
+    public static final String Y = "%y";
+    public static final String Z = "%z";
+    
 	
 	//Economy
 	public static final String Balance = "%bal";

@@ -38,6 +38,9 @@ public class MessageList {
 	public static String SavingConfigs;
 	public static String ConfigsSaved;
 	public static String ConfigOutdated;
+	public static String ConfiLangUpdate;
+	public static String ConfiLangReload;
+	public static String ConfiLangReloadDone;
 	
 	public static String JoinMessageNull;
 	public static String QuitnMessageNull;
@@ -148,7 +151,10 @@ public class MessageList {
 		ConfigsLoaded = pluginName + getMessage("ConfigsLoaded", "Configs loaded!");
 		SavingConfigs = pluginName + getMessage("SavingConfigs", "Saving configs...");
 		ConfigsSaved = pluginName + getMessage("ConfigsSaved", "Configs Saved!");
-		ConfigOutdated = pluginName + getMessage("aaaaaaaaaaa", "The following configuration files are outdated! Please update it!");
+		ConfigOutdated = pluginName + getMessage("ConfigOutdated", "The following configuration files are outdated! Please update it!");
+		ConfiLangUpdate = getMessage("ConfiLangUpdate", "The language configuration file has been updated! The following values have been added:");
+		ConfiLangReload = getMessage("ConfiLangReload", "Reloading language configuration file....");
+		ConfiLangReloadDone = getMessage("ConfiLangReloadDone", "Language configuration was successfully Reloaded!");
 		
 	}
 	

@@ -6,10 +6,11 @@ import org.bukkit.plugin.PluginManager;
 
 import praxis.slipcor.pvpstats.PSMySQL;
 import cz.Sicka_gp.MyServer.MyServer;
+import cz.Sicka_gp.MyServer.HookedPlugins.PluginsManager;
 
 public class PvpStatsPlugin {
 	private static boolean pvpstats;
-	private static MyServer plugin;
+	protected static MyServer plugin;
 	private static PSMySQL psmysql;
 
 
@@ -24,7 +25,7 @@ public class PvpStatsPlugin {
     	
     	if(pvpstatspl != null && pvpstatspl.isEnabled()){
         	pvpstats = pm.getPlugin("pvpstats") != null;
-        	plugin.getPluginsManager().getPluginList().add(pvpstatspl);
+        	PluginsManager.PluginList.add(pvpstatspl);
     	}
     }
 
